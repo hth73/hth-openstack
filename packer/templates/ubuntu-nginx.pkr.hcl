@@ -16,7 +16,7 @@ packer {
 source "openstack" "ubuntu-nginx-image" {
   cloud               = "devstack"
   source_image_name   = "ubuntu-24.04-noble-server"
-  image_name          = "ubuntu-24.04-nginx-{{timestamp}}"
+  image_name          = "ubuntu-24.04-nginx-v1"
 
   flavor              = "ds512M"
   ssh_username        = "ubuntu"
