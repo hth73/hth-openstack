@@ -38,7 +38,11 @@ sudo hostnamectl set-hostname cloud.htdom.local
 sudo vi /etc/hosts
 # 127.0.1.1 cloud.htdom.local cloud
 
+## Server durchstarten (optional)
 sudo reboot
+
+## Erste ssh Verbindung zum OpenStack Server
+ssh cloud.htdom.local
 ```
 
 ### OpenStack Server vorbereitung
