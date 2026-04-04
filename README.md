@@ -6,8 +6,11 @@
 ## Beschreibung
 Hier ein kleiner Bericht über meine Erfahrungen Rund um OpenStack und devstack. Der Ganze Aufbau erfolgte bei mir auf einem älteren Laptop mit 2 Core CPU, 16GB RAM und 1 NIC.
 
-Diese Dokumentation war ein kleiner Leitfaden<br>
-[Installing OpenStack under Ubuntu 24.04](https://medium.com/@ion.stefanache0/installing-openstack-using-devstack-under-virgin-fresh-ubuntu-24-04-lts-e3790280359b)
+**WICHTIGER HINWEIS**<br>
+Damit das so funktioniert wie hier beschrieben, hat es ungefähr 12-15 Stunden debugging benötigt um alle Fallsticke zu lösen.
+Daher werde ich auf einer gesonderten Seite alle möglichen Fallstricke dokumentieren um euch das Leben zu erleichtern.
+
+[OpenStack Debugging](debugging/README.md)
 
 ---
 
@@ -75,7 +78,7 @@ DATABASE_PASSWORD=$ADMIN_PASSWORD
 RABBIT_PASSWORD=$ADMIN_PASSWORD
 SERVICE_PASSWORD=$ADMIN_PASSWORD
 
-HOST_IP=192.168.xxx.xxx
+HOST_IP=192.168.xxx.54
 
 # optional
 LOGFILE=/opt/stack/logs/stack.sh.log
