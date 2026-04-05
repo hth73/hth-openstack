@@ -59,7 +59,6 @@ Vorteile:
 
 ```bash
 ## packer init für die benötigten Provider
-
 packer init packer/templates/ubuntu-nginx.pkr.hcl
 
 ## packer build um das Image in Openstack zu bauen

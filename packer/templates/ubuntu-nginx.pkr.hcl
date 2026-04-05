@@ -1,5 +1,4 @@
 ## required packer plugins for the installation
-##
 packer {
   required_plugins {
     openstack = {
@@ -14,7 +13,6 @@ packer {
 }
 
 ## Packer Variables
-##
 variable "os_version" {
   type    = string
   default = "ubuntu-24.04"
@@ -26,7 +24,6 @@ variable "flavor" {
 }
 
 ## Source Image
-##
 source "openstack" "ubuntu-nginx-image" {
   cloud             = "devstack"
 
@@ -44,17 +41,15 @@ source "openstack" "ubuntu-nginx-image" {
 }
 
 ## Build Process
-##
 build {
   sources = ["source.openstack.ubuntu-nginx-image"]
 
   provisioner "ansible" {
+    use_proxy     = false
     playbook_file = "ansible/playbook.yml"
 
     ansible_env_vars = [
       "ANSIBLE_ROLES_PATH=../common/ansible/roles"
     ]
-
-    use_proxy = false
   }
 }
