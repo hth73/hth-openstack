@@ -1,0 +1,89 @@
+---
+- name: Remove unwanted/unneeded packages
+  apt:
+    name:
+      - command-not-found
+      - friendly-recovery
+      - fwupd
+      - lxcfs
+      - popularity-contest
+      - snapd
+      - unattended-upgrades
+    state: absent
+    purge: yes
+  when: ansible_os_family == 'Debian'
+
+- name: APT cleanup
+  apt:
+    autoclean: yes
+    autoremove: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Reset machine-id
+  file:
+    path: /etc/machine-id
+    state: absent
+
+- name: Create empty machine-id
+  file:
+    path: /etc/machine-id
+    state: touch
+
+- name: Disable motd-news scripts
+  file:
+    path: /etc/update-motd.d
+    mode: '0755'
+    recurse: yes
+
+- name: Disable motd-news config
+  lineinfile:
+    path: /etc/default/motd-news
+    regexp: '^ENABLED='
+    line: 'ENABLED=0'
+    create: yes
+
+- name: Remove Ansible temp directory
+  file:
+    path: /home/ubuntu/.ansible
+    state: absent
+  ignore_errors: true
+
+- name: Disable unnecessary systemd timers/services
+  systemd:
+    name: "{{ item }}"
+    state: stopped
+    masked: true
+  loop:
+    - apport-autoreport.timer
+    - apport-autoreport.service
+    - apt-daily.timer
+    - apt-daily.service
+    - apt-daily-upgrade.timer
+    - apt-daily-upgrade.service
+    - dpkg-db-backup.timer
+    - dpkg-db-backup.service
+    - motd-news.timer
+    - motd-news.service
+    - ua-timer.timer
+    - ua-timer.service
+    - update-notifier-download.timer
+    - update-notifier-download.service
+    - update-notifier-motd.timer
+    - update-notifier-motd.service
+  register: stop_service
+  when: ansible_os_family == 'Debian'
+  failed_when:
+    - stop_service.failed
+    - "'Could not find the requested service' not in stop_service.msg"
+
+- name: Remove apt lists
+  file:
+    path: /var/lib/apt/lists
+    state: absent
+  when: ansible_os_family == 'Debian'
+
+- name: Clean /tmp
+  file:
+    path: /tmp
+    state: directory
+    mode: '1777'

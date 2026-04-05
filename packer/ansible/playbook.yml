@@ -1,17 +1,10 @@
+---
 - hosts: all
   become: true
+  environment:
+    DEBIAN_FRONTEND: noninteractive
 
-  tasks:
-    - name: "install nginx webserver"
-      apt:
-        name: nginx
-        state: present
-        update_cache: yes
-
-    - name: "Creates /mnt/data directory"
-      file:
-        path: "/mnt/data"
-        state: directory
-        owner: "www-data"
-        group: "www-data"
-        mode: '0755'
+  roles:
+    - base
+    - nginx
+    - cleanup

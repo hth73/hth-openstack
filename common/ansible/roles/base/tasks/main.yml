@@ -1,0 +1,33 @@
+---
+- name: set default target
+  systemd:
+    name: multi-user.target
+    enabled: yes
+
+- name: upgrade packages
+  apt:
+    upgrade: dist
+    update_cache: yes
+    autoclean: yes
+  when: ansible_os_family == 'Debian'
+
+# Install Packages which are needed on every host (misc)
+- name: install base packages
+  package:
+    name:
+      - bash-completion
+      - bind9-dnsutils
+      - ca-certificates
+      - cloud-guest-utils
+      - curl
+      - gnupg
+      - iproute2
+      - jq
+      - less
+      - lsof
+      - nano
+      - procps                                          
+      - vim
+    state: present
+    install_recommends: no
+  when: ansible_os_family == 'Debian'
