@@ -11,9 +11,10 @@ terraform {
 
 # Configure the OpenStack Provider
 provider "openstack" {
-  auth_url    = "http://cloud.htdom.local/identity"
-  tenant_name = "dev"
-  user_name   = "dev-user"
-  password    = "secret"
-  region      = "RegionOne"
+  auth_url      = "http://192.168.178.54/identity"
+  tenant_name   = "dev"
+  user_name     = "dev-user"
+  password      = "secret"
+  region        = "RegionOne"
+  endpoint_type = "public"
 }
