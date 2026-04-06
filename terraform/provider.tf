@@ -1,4 +1,6 @@
-# Define required providers
+# ---------------------------------------------------------------------------------
+# define required providers
+# ---------------------------------------------------------------------------------
 terraform {
   required_version = ">= 0.14.0"
     required_providers {
@@ -9,7 +11,9 @@ terraform {
     }
 }
 
-# Configure the OpenStack Provider
+# ---------------------------------------------------------------------------------
+# configure the openstack provider
+# ---------------------------------------------------------------------------------
 provider "openstack" {
   auth_url      = "http://192.168.178.54/identity"
   tenant_name   = "dev"
