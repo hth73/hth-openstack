@@ -1,0 +1,3 @@
+# create ssh key
+cd terraform/assets
+ssh-keygen -o -t ed25519 -f terraform -C'terraform@openstack.deploy'
