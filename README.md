@@ -1,6 +1,10 @@
-# OpenStack Demoumgebung mit devstack
+# OpenStack Testumgebung mit devstack
 
-<img src="https://img.shields.io/badge/-Ubuntu%20Server-557C94?logo=ubuntu&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/-OpenStack-ee003e?logo=openstack&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/-Bash-3e484d?logo=gnu-bash&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/-Ansible-d5000e?logo=ansible&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/-Terraform-6543e2?logo=terraform&logoColor=white&style=flat" />
+<p>
+  <img src="images/openstack.png" width="50%" height="50%" />
+</p>
+
+<img src="https://img.shields.io/badge/Ubuntu%20Server-E95420?logo=ubuntu&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/OpenStack-ED1944?logo=openstack&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/Packer-02A8EF?logo=packer&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/-Ansible-d5000e?logo=ansible&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/Terraform-844FBA?logo=terraform&logoColor=white&style=flat" /> <img src="https://img.shields.io/badge/Bash-181717?logo=gnu-bash&logoColor=white&style=flat" />
 
 ---
 ## Beschreibung
